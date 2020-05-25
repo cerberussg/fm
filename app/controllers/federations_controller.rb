@@ -54,6 +54,10 @@ class FederationsController < ApplicationController
   # DELETE /federations/1
   # DELETE /federations/1.json
   def destroy
+    divisions = Division.where(federation_id: @federation)
+    divisions.each do |division|
+      division.destroy
+    end
     @federation.destroy
     respond_to do |format|
       format.html { redirect_to federations_url, notice: 'Federation was successfully destroyed.' }

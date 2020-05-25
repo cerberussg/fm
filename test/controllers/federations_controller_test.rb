@@ -17,6 +17,7 @@ class FederationsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create federation" do
     assert_difference('Federation.count') do
+      @federation.name = 'WWE'
       post federations_url, params: { federation: { description: @federation.description, name: @federation.name } }
     end
 

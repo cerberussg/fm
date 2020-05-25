@@ -42,6 +42,8 @@ jobs:
         RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
         PGPORT: 5433
         PGHOST: localhost
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
         RAILS_ENV: test
       run: |
         gem install bundler
@@ -52,6 +54,8 @@ jobs:
         RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
         PGPORT: 5433
         PGHOST: localhost
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
         RAILS_ENV: test
       run: |
         bundle exec rake test

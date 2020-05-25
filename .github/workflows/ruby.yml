@@ -47,6 +47,8 @@ jobs:
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
+    - name: config webpack
+      run: NODE_ENV=test bundle exec rails webpacker:compile
     - name: Setup postgres database
       run: bundle exec rails db:setup
     - name: Run Tests

@@ -43,10 +43,12 @@ development:
 test:
   <<: *default
   database: <%= Rails.application.credentials.dig(:test, :db_database) %>
+  host: localhost
   port: <%= Rails.application.credentials.dig(:test, :db_port) %>
-  username: <%= Rails.application.credentials.dig(:test, :db_username) %>
-  password: <%= Rails.application.credentials.dig(:test, :db_password) %>
-
+  #username: <%= Rails.application.credentials.dig(:test, :db_username) %>
+  #password: <%= Rails.application.credentials.dig(:test, :db_password) %>
+  username: <%= ENV["POSTGRES_USER"] %>
+  password: <%= ENV["POSTGRES_PASSWORD"] %>
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.

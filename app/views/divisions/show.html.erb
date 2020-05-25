@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @division.name %>
+</p>
+
+<p>
+  <strong>Federation:</strong>
+  <%= @federation.name %>
+</p>
+
+<%= link_to 'Edit', edit_federation_division_path(federation_id: params[:federation_id], id: params[:id]) %> |
+<%= link_to 'Back', federation_divisions_path %>

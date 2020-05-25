@@ -41,6 +41,7 @@ jobs:
       env:
         RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
         PGPORT: 5433
+        PGHOST: localhost
         RAILS_ENV: test
       run: |
         gem install bundler
@@ -50,6 +51,7 @@ jobs:
       env:
         RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
         PGPORT: 5433
+        PGHOST: localhost
         RAILS_ENV: test
       run: |
         bundle exec rake test

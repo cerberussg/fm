@@ -6,15 +6,15 @@ class DivisionsTest < ApplicationSystemTestCase
   end
 
   test "visiting the index" do
-    visit divisions_url
+    visit federation_divisions_url(@division.federation_id)
     assert_selector "h1", text: "Divisions"
   end
 
   test "creating a Division" do
-    visit divisions_url
+    @division.name = 'World'
+    visit federation_divisions_url(@division)
     click_on "New Division"
 
-    fill_in "Federation", with: @division.federation_id
     fill_in "Name", with: @division.name
     click_on "Create Division"
 
@@ -23,10 +23,9 @@ class DivisionsTest < ApplicationSystemTestCase
   end
 
   test "updating a Division" do
-    visit divisions_url
+    visit federation_division_url(@division.federation_id, @division)
     click_on "Edit", match: :first
 
-    fill_in "Federation", with: @division.federation_id
     fill_in "Name", with: @division.name
     click_on "Update Division"
 
@@ -35,7 +34,7 @@ class DivisionsTest < ApplicationSystemTestCase
   end
 
   test "destroying a Division" do
-    visit divisions_url
+    visit federation_divisions_url(@division.federation_id)
     page.accept_confirm do
       click_on "Destroy", match: :first
     end

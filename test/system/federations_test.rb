@@ -11,6 +11,7 @@ class FederationsTest < ApplicationSystemTestCase
   end
 
   test "creating a Federation" do
+    @federation.name = 'WWE'
     visit federations_url
     click_on "New Federation"
 

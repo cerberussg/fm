@@ -2,6 +2,11 @@
 # Scott Goyette
 # Date: 05/25/2020
 # Email: scott.goyette@rubypythmore.com
+env:
+  POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+  POSTGRES_USER: postgres
+  POSTGRES_HOST: localhost
+  RAILS_ENV: test
 
 name: Ruby
 
@@ -18,11 +23,12 @@ jobs:
 
     services:
       postgres:
-        image: postgres:11.5
+        image: postgres:latest
+        ports:
+          - 5433:5433
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-        ports: ["5433:5433"]
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
@@ -34,29 +40,15 @@ jobs:
       uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
       with:
         ruby-version: 2.7.1
-    - name: Install PostgreSQL 11 client
+    - name: Install dependent libraries
       run: |
         sudo apt-get -yqq install libpq-dev
     - name: Build App
-      env:
-        RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
-        PGPORT: 5433
-        PGHOST: localhost
-        POSTGRES_USER: postgres
-        POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-        RAILS_ENV: test
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
         bin/rails db:setup
     - name: Run Tests
-      env:
-        RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
-        PGPORT: 5433
-        PGHOST: localhost
-        POSTGRES_USER: postgres
-        POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-        RAILS_ENV: test
       run: |
         bundle exec rake test
         bundle exec rake test:system

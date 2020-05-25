@@ -43,9 +43,7 @@ development:
 test:
   <<: *default
   database: fm_test
-  adapter: postgresql
-  host: <%= ENV["PGHOST"] %>
-  port: <%= ENV["PGPORT"] %>
+  host: <%= ENV["POSTGRES_HOST"] %>
   #username: <%= Rails.application.credentials.dig(:test, :db_username) %>
   #password: <%= Rails.application.credentials.dig(:test, :db_password) %>
   username: <%= ENV["POSTGRES_USER"] %>

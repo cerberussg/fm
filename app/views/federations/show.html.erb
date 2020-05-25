@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @federation.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @federation.description %>
+</p>
+
+<%= link_to 'Edit', edit_federation_path(@federation) %> |
+<%= link_to 'Back', federations_path %>

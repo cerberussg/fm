@@ -36,6 +36,7 @@ jobs:
         sudo apt-get -yqq install libpq-dev
     - name: Build App
       env:
+        RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
         PGPORT: 5433
         PGHOST: localhost
         PGUSER: postgres
@@ -46,6 +47,7 @@ jobs:
         bin/rails db:setup
     - name: Run Tests
       env:
+        RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
         PGPORT: 5433
         PGHOST: localhost
         PGUSER: postgres

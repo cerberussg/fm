@@ -47,8 +47,16 @@ jobs:
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
-    - name: config webpack
-      run: NODE_ENV=test bundle exec rails webpacker:compile
+    - name: Yarn Install
+      run: bin/rails yarn:install
+    - name: Compile Assets
+      shell: bash
+      run: |
+        if [[ ! -d public/packs-test ]]; then
+          bundle exec rails webpacker:compile
+        else
+          echo "No need to compile assets."
+        fi
     - name: Setup postgres database
       run: bundle exec rails db:setup
     - name: Run Tests

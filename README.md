@@ -1,4 +1,5 @@
 # README
+![Ruby](https://github.com/cerberussg/fm/workflows/Ruby/badge.svg?branch=master)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

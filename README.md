@@ -1,5 +1,6 @@
 # README
-![Ruby](https://github.com/cerberussg/fm/workflows/Ruby/badge.svg?branch=master)
+
+![CI/CD for Federation Manager](https://github.com/cerberussg/fm/workflows/CI/CD%20for%20Federation%20Manager/badge.svg)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

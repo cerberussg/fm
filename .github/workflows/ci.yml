@@ -8,7 +8,7 @@ env:
   POSTGRES_HOST: localhost
   RAILS_ENV: test
 
-name: Ruby
+name: CI/CD for Federation Manager
 
 on:
   push:

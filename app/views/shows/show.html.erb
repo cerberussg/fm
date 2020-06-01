@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @show.name %>
+</p>
+
+<p>
+  <strong>Day of week:</strong>
+  <%= @show.day_of_week %>
+</p>
+
+<p>
+  <strong>Number of matches:</strong>
+  <%= @show.number_of_matches %>
+</p>
+
+<%= link_to 'Edit', edit_federation_show_path(federation_id: params[:federation_id]) %> |
+<%= link_to 'Back', federation_shows_path %>

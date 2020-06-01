@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Shows</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Day of week</th>
+      <th>Number of matches</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shows.each do |show| %>
+      <tr>
+        <td><%= show.name %></td>
+        <td><%= show.day_of_week %></td>
+        <td><%= show.number_of_matches %></td>
+        <td><%= link_to 'Show', federation_show_path(@federation, show) %></td>
+        <td><%= link_to 'Edit', edit_federation_show_path(@federation, show) %></td>
+        <td><%= link_to 'Destroy', federation_show_path(@federation, show), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Show', new_federation_show_path %> |
+<%= link_to 'Back', federation_path(@federation) %>

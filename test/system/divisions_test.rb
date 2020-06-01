@@ -23,7 +23,7 @@ class DivisionsTest < ApplicationSystemTestCase
   end
 
   test "updating a Division" do
-    visit federation_division_url(@division.federation_id, @division)
+    visit federation_divisions_url(@division.federation_id)
     click_on "Edit", match: :first
 
     fill_in "Name", with: @division.name

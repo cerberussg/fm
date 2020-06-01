@@ -18,6 +18,6 @@ class DivisionTest < ActiveSupport::TestCase
   test 'invalid without name' do
     @division.name = nil
     refute @division.valid?, 'Saved division without name'
-    assert_not_nil @division.errors[:federation], 'no validation error for name present'
+    assert_not_nil @division.errors[:name], 'no validation error for name present'
   end
 end

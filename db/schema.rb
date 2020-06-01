@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_25_055552) do
+ActiveRecord::Schema.define(version: 2020_06_01_055721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(version: 2020_05_25_055552) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "shows", force: :cascade do |t|
+    t.bigint "federation_id"
+    t.string "name"
+    t.integer "number_of_matches"
+    t.string "day_of_week"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["federation_id"], name: "index_shows_on_federation_id"
   end
 
   add_foreign_key "divisions", "federations"

@@ -66,7 +66,6 @@ class DivisionsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_division
       @division = @federation.divisions.find_by(federation_id: params[:federation_id], id: params[:id])
-      puts @division
     end
 
     def set_federation

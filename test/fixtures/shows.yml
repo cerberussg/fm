@@ -1,0 +1,12 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one: 
+  federation: one
+  name: Humpday Night Law
+  number_of_matches: 9
+  day_of_week: Wednesday
+
+two:
+  name: 
+  number_of_matches: 
+  day_of_week: MyString
